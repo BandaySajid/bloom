@@ -17,6 +17,8 @@
   "dependencies": {
     "animejs": "^3.2.2",
     "gsap": "^3.12.5",
+    "install": "^0.13.0",
+    "pnpm": "^9.15.2",
     "three": "^0.172.0"
   }
 }

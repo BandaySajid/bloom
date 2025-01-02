@@ -8,227 +8,271 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            image-rendering: smooth;
+            width: 100%;
+            height: auto;
+        }
+
+        .lazyload {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .lazyload.lazyloaded {
+            opacity: 1;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f3f3f3;
+        }
+
+        .image-container::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%;
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
-<body class="bg-white p-4 text-gray-700">
-    <div id="app" class="container mx-auto h-screen">
-        <div class="fixed top-4 left-4">
-            <h1 class="text-3xl md:text-4xl lg:text-4xl font-bold text-green-600">Bloom</h1>
-        </div>
-        <section class="hero p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Bloomscrolling
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Cultivating positivity and connection.
-                </p>
-                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-700">
-                    Bloom: Social Media for Good.
-                </h3>
-                <a href="#"
-                    class="mt-8 inline-block bg-green-400 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full text-xl md:text-2xl lg:text-3xl">Join
-                    Us</a>
-            </div>
-        </section>
-        <section class="doomscrolling ds-part-1 p-4 md:p-8 lg:p-16 flex flex-col items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-gray-700">
-                    The Problem
-                </h2>
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
-                    Doomscrolling
-                </h2>
-            </div>
-        </section>
-
-        <section
-            class="doomscrolling ds-part-2 p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
-            <div class="md:w-1/2">
-                <p class="text-xl md:text-3xl lg:text-6xl mb-8">
-                    The endless scroll, a cycle of <b class="text-gray-700">negativity</b> and <b
-                        class="text-gray-700">anxiety</b>.
-                    It drains your time, energy, and mental well-being.
-                </p>
-            </div>
-            <div class="md:w-1/2">
-                <img src="/doom.jpg" alt="Doomscrolling illustration" class="mb-4" />
-            </div>
-        </section>
-
-        <section
-            class="draining-brain p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
-            <div class="md:w-1/2">
-                <img src="/brain.jpg" alt="Draining brain" class="mb-4" />
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
-                    Draining Brain
-                </h2>
-
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Overloading the mind with constant, shallow information
-                    leaves little room for deep thinking or focus.
-                </p>
-            </div>
-        </section>
-
-
-        <section
-            class="draining-positivity p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
-                    Draining Positivity
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Exposure to negative news, comparisons, and toxic
-                    content chips away at mental well-being.
-                </p>
-            </div>
-            <div class="md:w-1/2">
-                <img src="/doom_human.jpg" alt="Draining positivity" class="mb-4" />
-            </div>
-        </section>
-
-        <section
-            class="draining-energy p-4 md:p-8 lg:p-16 flex flex-row md:flex-row items-center justify-center h-screen gap-16">
-            <div class="md:w-1/2">
-                <img src="/energy_drain.jpeg" alt="Draining energy" class="mb-4" />
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
-                    Draining Energy
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Hours spent scrolling lead to physical fatigue and
-                    mental exhaustion, leaving you unmotivated.
-                </p>
-            </div>
-        </section>
-
-        <section class="solution p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-gray-700">
-                    The Solution
-                </h2>
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    BloomScroll
-                </h2>
-            </div>
-        </section>
-        <section
-            class="solution p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
-            <div class="md:w-1/2">
-                <img src="/happy.jpg" alt="Transform Your Feed" class="mb-4" />
-            </div>
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Transform Your Feed
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Bloom Scroll turns endless scrolling into uplifting
-                    moments, filling your feed with inspiring and empowering
-                    content.
-                </p>
-            </div>
-        </section>
-
-        <section
-            class="solution p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-green-400">
-                    Empowerment Algorithm
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Bloom’s unique algorithm prioritizes positive,
-                    growth-oriented content tailored to uplift and motivate
-                    you.
-                </p>
-            </div>
-            <div class="md:w-1/2">
-                <img src="/algorithm.jpeg" alt="Empowerment Algorithm" class="mb-4" />
-            </div>
-        </section>
-        <section class="solution p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Social Media for Good
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Bloom redefines social media by focusing on your
-                    well-being, helping you grow, connect, and thrive.
-                </p>
-            </div>
-        </section>
-
-        <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-gray-700">
-                    The Features
-                </h2>
-            </div>
-        </section>
-        <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Inspiration-Focused Feed
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    A feed filled with uplifting, motivational, and
-                    growth-oriented content to keep you inspired.
-                </p>
-            </div>
-        </section>
-        <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Unique Algorithm
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Smartly curates content that prioritizes positivity,
-                    learning, and meaningful interactions.
-                </p>
-            </div>
-        </section>
-        <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Mindful Scrolling Timer
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Gentle reminders to pause and scroll with purpose,
-                    promoting healthier habits.
-                </p>
-            </div>
-        </section>
-        <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Community of Growth
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Connect with a supportive network of like-minded
-                    individuals focused on positivity and self-improvement.
-                </p>
-            </div>
-        </section>
-
-        <section class="cta p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
-            <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
-                    Ready to Bloom?
-                </h2>
-                <p class="text-xl md:text-3xl lg:text-4xl mb-8">
-                    Join our community and bloom with us.
-                </p>
-                <button
-                    class="bg-green-400 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full text-2xl md:text-4xl lg:text-5xl">
-                    Get Started
-                </button>
-            </div>
-        </section>
+<body class="bg-white p-4 text-gray-700"></body>
+<div id="app" class="container mx-auto h-screen">
+    <div class="fixed top-4 left-4">
+        <h1 class="text-3xl md:text-4xl lg:text-4xl font-bold text-green-600">Bloom</h1>
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <section class="hero p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen relative">
+        <canvas id="stage1" class="absolute w-full h-full"></canvas>
+        <div class="md:w-1/2 z-50">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
+                BloomScroll
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Grow positivity. Connect deeper.
+            </p>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-700">
+                Bloom: Social Media, Reimagined.
+            </h3>
+            <a href="#"
+                class="cursor-pointer mt-8 inline-block bg-green-400 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full text-xl md:text-2xl lg:text-3xl">Join
+                Now</a>
+        </div>
+    </section>
+    <section class="doomscrolling ds-part-1 p-4 md:p-8 lg:p-16 flex flex-col items-center justify-center h-screen">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-gray-700">
+                The Problem:
+            </h2>
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
+                Doomscrolling
+            </h2>
+        </div>
+    </section>
+
+    <section
+        class="doomscrolling ds-part-2 p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
+        <div class="md:w-1/2">
+            <p class="text-xl md:text-3xl lg:text-6xl mb-8">
+                Endless scroll? <b>Negativity</b> & <b>anxiety</b>? Reclaim your time, energy, and well-being.
+            </p>
+        </div>
+        <div class="md:w-1/2 image-container">
+            <img src="/doom.jpg" alt="Doomscrolling illustration" class="mb-4 lazyload rounded-lg"
+                data-src="/doom.jpg" />
+        </div>
+    </section>
+
+    <section
+        class="draining-brain p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
+        <div class="md:w-1/2 image-container">
+            <img src="/brain.jpeg" alt="Draining brain" class="mb-4 lazyload rounded-lg" data-src="/brain.jpeg" />
+        </div>
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
+                Draining Brain
+            </h2>
+
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Shallow info overload? Find space for focus and deep thought.
+            </p>
+        </div>
+    </section>
+
+
+    <section
+        class="draining-positivity p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
+                Draining Positivity
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Toxic content eroding your well-being? Let's change that.
+            </p>
+        </div>
+        <div class="md:w-1/2 image-container">
+            <img src="/doom_human.jpeg" alt="Draining positivity" class="mb-4 lazyload rounded-lg"
+                data-src="/doom_human.jpeg" />
+        </div>
+    </section>
+
+    <section
+        class="draining-energy p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen gap-16">
+        <div class="md:w-1/2 image-container">
+            <img src="/energy_drain.jpeg" alt="Draining energy" class="mb-4 lazyload rounded-lg"
+                data-src="/energy_drain.jpeg" />
+        </div>
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-red-500">
+                Draining Energy
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Endless scrolling = exhaustion? Rediscover motivation.
+            </p>
+        </div>
+    </section>
+
+    <section class="solution-container flex flex-col items-center justify-center relative h-auto md:h-[80vh] p-8">
+        <div
+            class="central-section flex flex-col items-center justify-center text-center p-8 bg-white w-full md:w-3/4 lg:w-2/3">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-700">The Solution</h2>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-green-400">BloomScroll</h2>
+            <p class="text-lg md:text-xl lg:text-2xl mb-6 text-gray-600">Social media for a happier, healthier you.
+            </p>
+        </div>
+
+        <div class="w-px bg-gray-300 h-16"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-8">
+            <div class="flex flex-col items-center justify-center order-2 md:order-1 bg-white rounded-lg shadow-md p-6">
+                <img src="/happy.jpeg" alt="Transform Your Feed"
+                    class="w-24 h-24 md:w-32 md:h-32 mb-4 rounded-full shadow-md hover:scale-110 transition duration-300 ease-in-out object-cover lazyload rounded-lg"
+                    data-src="/happy.jpeg" />
+                <h3 class="text-xl md:text-2xl font-bold text-green-400 mb-2">Transform Your Feed</h3>
+                <p class="text-sm md:text-base lg:text-lg text-center text-gray-600">Inspiring moments, daily.</p>
+
+            </div>
+
+            <div class="flex flex-col items-center justify-center order-1 md:order-2 bg-white rounded-lg shadow-md p-6">
+                <img src="/algorithm.jpeg" alt="Empowerment Algorithm"
+                    class="w-24 h-24 md:w-32 md:h-32 mb-4 rounded-full shadow-md hover:scale-110 transition duration-300 ease-in-out object-cover lazyload rounded-lg"
+                    data-src="/algorithm.jpeg" />
+                <h3 class="text-xl md:text-2xl font-bold text-green-400 mb-2">Empowerment Algorithm</h3>
+                <p class="text-sm md:text-base lg:text-lg text-center text-gray-600">Uplifting content, tailored to
+                    you.</p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center order-3 md:order-3 bg-white rounded-lg shadow-md p-6">
+                <img src="/good-sm.jpeg" alt="Social Media for Good"
+                    class="w-24 h-24 md:w-32 md:h-32 mb-4 rounded-full shadow-md hover:scale-110 transition duration-300 ease-in-out object-cover lazyload rounded-lg"
+                    data-src="/good-sm.jpeg" />
+                <h3 class="text-xl md:text-2xl font-bold text-green-400 mb-2">Social Media for Good</h3>
+                <p class="text-sm md:text-base lg:text-lg text-center text-gray-600">Connect, grow, and thrive.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-gray-700">
+                Key Features
+            </h2>
+        </div>
+
+        <div class="flex justify-center">
+            <svg fill="#000000" class="h-[100px] w-[100px]" version="1.1" id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330"
+                xml:space="preserve">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <path id="XMLID_24_"
+                        d="M216.358,271.76c-2.322-5.605-7.792-9.26-13.858-9.26H180V15c0-8.284-6.716-15-15-15 c-8.284,0-15,6.716-15,15v247.5h-22.5c-6.067,0-11.537,3.655-13.858,9.26c-2.321,5.605-1.038,12.057,3.252,16.347l37.5,37.5 C157.322,328.536,161.161,330,165,330s7.678-1.464,10.607-4.394l37.5-37.5C217.396,283.816,218.68,277.365,216.358,271.76z">
+                    </path>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
+                Inspiration Daily
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Uplifting content for a brighter you.
+            </p>
+        </div>
+    </section>
+    <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
+                Smart Algorithm
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Positive vibes only.
+            </p>
+        </div>
+    </section>
+    <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
+                Mindful Timer
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Scroll with intention.
+            </p>
+        </div>
+    </section>
+    <section class="features p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen">
+        <div class="md:w-1/2">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
+                Thriving Community
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Connect & grow together.
+            </p>
+        </div>
+    </section>
+
+    <section class="cta p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-center h-screen relative">
+        <canvas id="stage2" class="absolute"></canvas>
+        <div class="md:w-1/2 z-10">
+            <h2 class="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 text-green-400">
+                Ready to Bloom?
+            </h2>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-8">
+                Join the movement.
+            </p>
+            <button
+                class="bg-green-400 flex flex-col items-center hover:bg-green-500 text-white font-bold py-4 px-8 rounded-full text-2xl md:text-4xl lg:text-5xl">
+                Get Started
+                <span class="text-xs">Click here to see magic.</span>
+            </button>
+        </div>
+    </section>
+</div>
+<script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
