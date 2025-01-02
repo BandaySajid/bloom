@@ -10,6 +10,7 @@ sections.forEach((section, index) => {
   let h2 = section.querySelector('h2');
   let p = section.querySelector('p');
   let button = section.querySelector('button');
+  let imageContainers = section.querySelectorAll('.image-container');
 
 
   gsap.fromTo(
@@ -77,6 +78,39 @@ sections.forEach((section, index) => {
     );
     gsap.to(
       image,
+      {
+        scale: 0.8,
+        opacity: 0,
+        y: -50,
+        ease: "power2.in",
+        scrollTrigger: {
+          trigger: section,
+          start: "bottom 0%",
+          end: "+=600",
+          scrub: 1,
+        },
+      }
+    );
+  });
+  imageContainers.forEach(container => {
+    gsap.fromTo(
+      container,
+      { scale: 0.8, opacity: 0, y: 50 },
+      {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "bottom 50%",
+          scrub: 1,
+        },
+      }
+    );
+    gsap.to(
+      container,
       {
         scale: 0.8,
         opacity: 0,
